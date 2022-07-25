@@ -8,6 +8,26 @@ The current plan is to implement the Astronomy Picture of the Day, the Internati
 
 This project represents my first time creating GUI applications on Linux, previously all my GUI work has been on Windows in C# using the .NET Framework, or in C++ using various GUI libraries such as SFML. As mentioned, this is made using GTK, but I would like to try out Qt at some point in the future for another project as it is cross-platform.
 
+## Developing
+
+### Dependencies
+
+The following libraries are required to develop and build the application:
+
+* GTK
+  * Glib
+  * Cairo
+  * GDK Pixbuf
+  * Harfbuzz
+  * Pango
+  * Graphene
+
+### Building
+
+Run the [`build.sh`](/build.sh) script to build and run the application within an isolated Docker environment.
+
+The image in the [`dockerfile`](/dockerfile) must be built before running the script.
+
 ## License
 
 Copyright (C) 2022 [viral32111](https://viral32111.com).
