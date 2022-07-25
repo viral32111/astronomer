@@ -3,7 +3,7 @@
 FROM registry.server.home/ubuntu:22.04
 
 RUN apt-get update && \
-	apt-get install --no-install-recommends --yes libgtk-3-0 libgtk-3-dev xauth && \
+	apt-get install --no-install-recommends --yes libgtk-4-1 libgtk-4-dev xauth && \
 	rm --verbose --force --recursive /var/lib/apt/lists/*
 
 USER ${USER_ID}:${USER_ID}
