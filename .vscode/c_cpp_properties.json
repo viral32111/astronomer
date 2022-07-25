@@ -4,14 +4,7 @@
 		{
 			"name": "Linux",
 			"includePath": [
-				"include",
-				"include/gtk",
-				"include/glib",
-				"include/cairo",
-				"include/pango",
-				"include/harfbuzz",
-				"include/gdk-pixbuf",
-				"include/graphene"
+				"include/**"
 			],
 			"defines": [],
 			"compilerPath": "/usr/bin/gcc",
