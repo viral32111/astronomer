@@ -25,9 +25,9 @@ The following libraries are required to develop and build the application:
 
 ### Building
 
-Run the [`build.sh`](/build.sh) script to build and run the application within an isolated Docker environment.
+Use the [`build.bash`](/build.bash) script to build and run the application within an isolated Docker environment.
 
-The image in the [`dockerfile`](/dockerfile) must be built before running the script.
+The image in the [`dockerfile`](/dockerfile) can be built using the same script.
 
 ## License
 
