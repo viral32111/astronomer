@@ -3,7 +3,7 @@
 FROM registry.server.home/ubuntu:22.04
 
 RUN apt-get update && \
-	apt-get install --no-install-recommends --yes libgtk-4-1 libgtk-4-dev xauth && \
+	apt-get install --no-install-recommends --yes xauth libgtk-4-1 libgtk-4-dev libcurl4 libcurl4-openssl-dev && \
 	rm --verbose --force --recursive /var/lib/apt/lists/*
 
 USER ${USER_ID}:${USER_ID}
@@ -15,3 +15,5 @@ ENV XDG_CONFIG_HOME=${USER_HOME}/.config \
 	XDG_RUNTIME_DIR=${USER_HOME}/.run
 
 RUN mkdir --verbose --parents $XDG_CONFIG_HOME $XDG_CACHE_HOME $XDG_DATA_HOME $XDG_STATE_HOME $XDG_RUNTIME_DIR
+
+ENTRYPOINT [ "/bin/bash" ]

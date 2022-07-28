@@ -21,6 +21,7 @@ The following libraries are required to develop and build the application:
   * Harfbuzz
   * Pango
   * Graphene
+* cURL
 
 ### Building
 
