@@ -1,16 +1,15 @@
 #include "gtk/gtk.h"
 #include "curl/curl.h"
 
+static CURL *curl;
+
 static void button_clicked( GtkWidget *widget, gpointer data ) {
-	CURL *curl = curl_easy_init();
 	curl_easy_setopt( curl, CURLOPT_URL, "http://httpstat.us/200" );
 
 	CURLcode result = curl_easy_perform( curl );
 	if ( result != CURLE_OK ) {
 		g_print( "cURL request failed: %s\n", curl_easy_strerror( result ) );
 	}
-
-	curl_easy_cleanup( curl );
 
 	g_print( "\n" );
 }
@@ -40,17 +39,23 @@ static void application_activate( GtkApplication *application, gpointer data ) {
 }
 
 int main( int argument_count, char *argument_values[] ) {
+	g_print( "Version: 0.1.0\n" );
+
 	curl_version_info_data *curl_version = curl_version_info( CURLVERSION_NOW );
-	
+
 	g_print( "GTK version: %d.%d.%d\n", GTK_MAJOR_VERSION, GTK_MINOR_VERSION, GTK_MICRO_VERSION );
 	g_print( "Glib version: %d.%d.%d\n", glib_major_version, glib_minor_version, glib_micro_version );
 	g_print( "cURL version: %s (%s)\n", curl_version->version, curl_version->ssl_version );
+
+	curl = curl_easy_init();
 
 	GtkApplication *application = gtk_application_new( "com.viral32111.astronomer", G_APPLICATION_DEFAULT_FLAGS );
 	g_signal_connect( application, "activate", G_CALLBACK( application_activate ), NULL );
 
 	int status_code = g_application_run( G_APPLICATION( application ), argument_count, argument_values );
 	g_object_unref( application );
+
+	curl_easy_cleanup( curl );
 
 	return status_code;
 }
