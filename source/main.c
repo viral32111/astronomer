@@ -39,7 +39,7 @@ static void application_activate( GtkApplication *application, gpointer data ) {
 }
 
 int main( int argument_count, char *argument_values[] ) {
-	g_print( "Version: 0.1.0\n" );
+	printf( "Astronomer version: %d.%d.%d\n", ASTRONOMER_MAJOR_VERSION, ASTRONOMER_MINOR_VERSION, ASTRONOMER_PATCH_VERSION );
 
 	curl_version_info_data *curl_version = curl_version_info( CURLVERSION_NOW );
 

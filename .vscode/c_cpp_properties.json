@@ -15,7 +15,8 @@
 				"/usr/lib/graphene-1.0/include"
 			],
 			"compilerPath": "/usr/bin/gcc",
-			"intelliSenseMode": "linux-gcc-x64"
+			"intelliSenseMode": "linux-gcc-x64",
+			"configurationProvider": "ms-vscode.makefile-tools"
 		}
 	],
 	"version": 4
